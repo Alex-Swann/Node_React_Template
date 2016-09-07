@@ -4,8 +4,10 @@
   "description": "An initial template used for one minute training.",
   "main": "server.js",
   "scripts": {
-    "test": "PORT=4001 ./node_modules/.bin/mocha --recursive",
-    "start": "PORT=4000 node ./app/server.js"
+    "webpack-watch": "webpack -w",
+    "express-server": "node ./app/server",
+    "dev": "concurrently --kill-others \"npm run webpack-watch\" \"npm run express-server\"",
+    "test": "PORT=4001 mocha --compilers js:babel-core/register --require ./test/utils/dom.js 'test/**/*.@(js|jsx)'"
   },
   "author": "Alex Swann",
   "license": "ISC",
@@ -24,7 +26,14 @@
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.14.0",
     "chai": "^3.5.0",
+    "chai-enzyme": "^0.5.1",
+    "chai-jsx": "^1.0.1",
+    "cheerio": "^0.20.0",
+    "concurrently": "^2.2.0",
+    "enzyme": "^2.4.1",
     "extract-text-webpack-plugin": "^1.0.1",
-    "mocha": "^3.0.2"
+    "jsdom": "^9.5.0",
+    "mocha": "^3.0.2",
+    "react-addons-test-utils": "^15.3.1"
   }
 }
