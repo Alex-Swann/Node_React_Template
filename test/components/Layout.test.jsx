@@ -5,18 +5,19 @@ import { mount } from 'enzyme';
 
 
 import Layout from '../../app/components/Layout.jsx';
+import Navbar from '../../app/components/Navbar.jsx';
 
 describe('<Layout/>', () => {
   var wrapper;
 
-  before(()=>{
+  before( () => {
     wrapper = mount(
       <Layout />
     );
   });
 
-  it('renders five <Choices /> components (game buttons) by default', () => {
-
+  it('should contain a Navbar component', () => {
+    expect(wrapper.find(Navbar)).to.have.length(1);
   });
 
 });

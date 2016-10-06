@@ -1,5 +1,10 @@
 {
   "node": true,
   "esversion": 6,
-  "strict": "global"
+  "strict": "global",
+  "globals": {
+    "before": false,
+    "describe": false,
+    "it": false
+  }
 }
